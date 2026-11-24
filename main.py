@@ -28,6 +28,8 @@ class Entry:
             raise ValueError("job title is empty")
         if len(self.text) != len(self.text.strip()):
             raise ValueError("job title has surrounding whitespace")
+        if "  " in self.text:
+            raise ValueError("job title has a double space")
         if len(self.text) > self.limit:
             raise ValueError(
                 f"job title is {len(self.text)} chars, limit is {self.limit}"
